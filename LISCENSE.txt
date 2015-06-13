@@ -1,0 +1,9 @@
+Dittoslash's Generic License
+
+Copyright (c) 2015 Henry Whydoyouneedtoknowmylastname
+
+This license gives anyone and everyone (hereby 'User', 'You') the permission to use this software commercially and privately.
+Users of this program (herby 'the Software') may create copies of the Software (hereby 'forks') and distribute those. Forks do not have to use this License (hereby 'DGL', 'License'). 
+
+USERS OF THIS SOFTWARE MAY NOT SELL THIS SOFTWARE (but they can sell forks). THE AUTHOR OF THIS SOFTWARE CAN CHANGE THIS SOFTWARE AT ANY TIME. USERS MAY NOT DISTRIBUTE THIS SOFTWARE WITHOUT THE OWNER'S PERMISSION AND THOSE GIVEN PERMISSION WILL BE NOTED IN THE FILE 'README.MD'. 
+THE AUTHOR OF THIS SOFTWARE IS NOT LIABLE FOR ANY DAMAGES CAUSED BY THIS SOFTWARE. THE SOFTWARE IS PROVIDED 'AS IS' AND COMES WITH NO WARRANTY.
