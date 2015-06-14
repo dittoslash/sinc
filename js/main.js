@@ -5,6 +5,7 @@ var hasPermit = "false"
 window.onload = function () { //Loading script
 txtBox("Loading");
 window.setInterval(tick, 1000);
+window.setInterval(millitick, 1);
 $(".permithide").hide();
 txtBox("Loaded tick")
 money = parseFloat(Cookies.get("money")); //Get cookies and parse them, cookies are strings
@@ -57,10 +58,12 @@ function pressButton() {
 }
 function tick() {
 	money = money + mpms
-	updateMoney();
 	if (money > 10000) {
 		$("#evolve").show();
 	}
+}
+function millitick() {
+	updateMoney()
 }
 
 
