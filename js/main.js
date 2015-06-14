@@ -67,7 +67,7 @@ function tick() {
 function buyWorker(i) { //WARNING MATH AHEAD >.<
 	if (money > (((i * 100) - 1) + (i * 5))) {
 		money = money - (((i * 100)) + (i * 5));
-		addIncome(11 - i);
+		addIncome(i / (11 - i));
 		txtBox("Bought worker");
 	} else {
 		txtBox("Couldn't afford");
