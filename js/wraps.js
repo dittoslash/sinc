@@ -1,13 +1,13 @@
-function getElById(id) {
-	// Get element by id
-	return document.getElementById(id);
-};
+//Functions (mainly wrappers)
 function txtBox(msg) {
 	// *woof*
-	getElById("textbox").innerHTML = msg;
-	return getElById("textbox");
+	$("#textbox").html(msg);
+	return $("#textbox");
 };
 function updateMoney() {
-	getElById("money").innerHTML = Math.floor(money); //rounded to prevent display of lots of dec places
+	$("#money").html(Math.floor(money))//rounded to prevent display of lots of dec places
 	return money
 };
+function mozRand(min, max) { //thanks, Mozilla
+  return Math.floor(Math.random() * (max - min)) + min;
+}

@@ -1,33 +1,56 @@
 var money = 0
 var moneyperclick = 1
-var mpms = 0
+var mpms = 0.01
 var hasPermit = "false"
 window.onload = function () { //Loading script
 txtBox("Loading");
-window.setInterval(tick, 10);
+window.setInterval(tick, 1000);
 $(".permithide").hide();
 txtBox("Loaded tick")
-money = parseFloat(Cookies.get("money"));
+money = parseFloat(Cookies.get("money")); //Get cookies and parse them, cookies are strings
 moneyperclick = parseFloat(Cookies.get("moneyperclick"));
 mpms = parseFloat(Cookies.get("mpms"));
 hasPermit = Cookies.get("hasPermit")
 txtBox("Loaded cookies")
-if (isNaN(money) && isNaN(mpms) && isNaN(moneyperclick)) {
+if (isNaN(money) && isNaN(mpms) && isNaN(moneyperclick)) { //Naan bread prevention
 	money = 0
 	moneyperclick = 1
-	mpms = 0
+	mpms = 0.01
 	hasPermit = "false"
 }
 txtBox("Fixed naan bread")
-if (hasPermit == "true") {
+if (hasPermit == "true") { //
 	$(".permithide").show();
 	$("#workerpermit").hide();
 }
-txtBox("Loaded permit cookie")
-getElById('pointerupgrade').innerHTML = "Upgrade mouse for 1000 money (current: " + moneyperclick + ")"
-txtBox("MPC display")
-txtBox("Sinc Loaded");
+txtBox("Loaded permit cookie");
+if (moneyperclick > 1 && moneyperclick < 20) { //technically the 'current' message should only appear until you've bought the upgrade once, this fixes that
+	$("#pointerupgrade").html("Upgrade mouse for 1000 money (current: " + moneyperclick + ")");
 }
+if (moneyperclick > 19) {
+	$("#pointerupgrade").hide();
+}
+txtBox("MPC display");
+$('#evoinfo').hide();
+$('#evolve').hide();
+txtBox("Hidden evolve things");
+txtBox("Sinc Loaded");
+$("#spoilers").show(); //This is placed after everything to make sure that spoilers only show after there's NO error.
+}
+
+
+
+
+
+//Functions
+function evolve() {
+	moneyperclick = mozRand((money - 10000), (money - 5000))
+	money = 0
+	hasPermit = "false"
+	mpms = 0.01
+	location.reload()
+}
+
 function pressButton() {
 	money = money + moneyperclick;
 	updateMoney();
@@ -35,13 +58,16 @@ function pressButton() {
 function tick() {
 	money = money + mpms
 	updateMoney();
+	if (money > 10000) {
+		$("#evolve").show();
+	}
 }
 
 
 function buyWorker(i) { //WARNING MATH AHEAD >.<
-	if (money > (((i * 100) - 1) + (i * 5) + (i * 100))) {
-		money = money - (((i * 100)) + (i * 5) + (i * 100));
-		addIncome(i / (11 - i));
+	if (money > (((i * 100) - 1) + (i * 5))) {
+		money = money - (((i * 100)) + (i * 5));
+		addIncome(11 - i);
 		txtBox("Bought worker");
 	} else {
 		txtBox("Couldn't afford");
@@ -68,7 +94,7 @@ function upgradeMouse() {
 		money = money - 1000
 		moneyperclick = moneyperclick + 1
 		txtBox("Upgraded pointer")
-		getElById('pointerupgrade').innerHTML = "Upgrade mouse for 1000 money (current: " + moneyperclick + ")"
+		$("#pointerupgrade").html("Upgrade mouse for 1000 money (current: " + moneyperclick + ")")
 		if (moneyperclick == 20) {
 			$("#pointerupgrade").hide();
 			txtBox("Max level of pointer reached")
