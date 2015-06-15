@@ -25,6 +25,12 @@ if (hasPermit == "true") { //
 	$("#workerpermit").hide();
 }
 txtBox("Loaded permit cookie");
+$('#evoinfo').hide();
+$('#evolve').hide();
+txtBox("Hidden evolve things");
+if (getParamByName("woof") == "bark") {
+	moneyperclick = 25
+}
 if (moneyperclick > 1 && moneyperclick < 20) { //technically the 'current' message should only appear until you've bought the upgrade once, this fixes that
 	$("#pointerupgrade").html("Upgrade mouse for 1000 money (current: " + moneyperclick + ")");
 }
@@ -32,9 +38,6 @@ if (moneyperclick > 19) {
 	$("#pointerupgrade").hide();
 }
 txtBox("MPC display");
-$('#evoinfo').hide();
-$('#evolve').hide();
-txtBox("Hidden evolve things");
 txtBox("Sinc Loaded");
 $("#spoilers").show(); //This is placed after everything to make sure that spoilers only show after there's NO error.
 }
